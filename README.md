@@ -1,5 +1,7 @@
 # Dockerized Odoo Development Environment
 
+This project is based on [docker-odoo-dev](https://github.com/mjavint/docker-odoo-dev) from @mjavint
+
 This is a project template to develop custom modules using an Odoo dockerized image which allow to perform remote debugging.
 
 ## Setup development environment
