@@ -1,0 +1,27 @@
+services:
+  odoo:
+    container_name: odoo
+    hostname: odoo-dev
+    image: odoo-dev:17
+    environment:
+      - HOST=${PG_HOST}
+      - PORT=${PG_PORT}
+      - USER=${PG_USER}
+      - PASSWORD=${PG_PASSWORD}
+    ports:
+      - "8069:8069"
+      - "8888:8888"
+    extra_hosts:
+      - "postgres-host:${PG_HOST}"
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ${ODOO_SOURCE_DIR}:/var/lib/odoo/odoo
+      - ${ODOO_CONF_DIR}:/etc/odoo
+      - ${ADDONS_DIR}:/mnt/addons
+      - ${CUSTOM_ADDONS_DIR}:/mnt/custom-addons:rw
+      - ${EXTRA_ADDONS_DIR}:/mnt/extra-addons
+    env_file:
+      - .env
+volumes:
+  odoo-data:
+    external: true

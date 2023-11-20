@@ -53,3 +53,7 @@ $RECYCLE.BIN/
 # compiled python files
 *.py[co]
 __pycache__/
+
+.vscode/
+**/.env
+pyrightconfig.json
